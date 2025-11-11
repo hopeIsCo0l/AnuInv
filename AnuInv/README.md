@@ -2,7 +2,7 @@
 
 A comprehensive web-based application for managing candy factory operations, including warehouse management, inventory tracking, payroll, attendance, and work reporting.
 
-## 🚀 Features
+## Features
 
 - **Role-Based Access Control**: Yer (Employer), Admin Yee, and Non-Admin Yee roles
 - **User Authentication**: Signup, signin with OTP verification and JWT
@@ -13,7 +13,7 @@ A comprehensive web-based application for managing candy factory operations, inc
 - **Work Reports**: Submit and view attendance-linked and inventory-linked reports
 - **Audit Logging**: Track all critical system actions
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Backend
 - **Framework**: NestJS
@@ -27,7 +27,7 @@ A comprehensive web-based application for managing candy factory operations, inc
 - **Styling**: Tailwind CSS
 - **UI**: React
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 AnuInv/
@@ -48,7 +48,7 @@ AnuInv/
 └── README.md
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -124,7 +124,7 @@ npm run dev
 
 The frontend will be running on `http://localhost:3001`
 
-## 📚 API Endpoints
+## API Endpoints
 
 ### Authentication
 - `POST /api/auth/signup` - Register a new user
@@ -138,7 +138,7 @@ The frontend will be running on `http://localhost:3001`
 - `PUT /api/users/:id` - Update user (Role-based)
 - `DELETE /api/users/:id` - Delete user (Yer only)
 
-## 🔐 User Roles
+## User Roles
 
 ### Yer (Employer/Manager)
 - Full control over warehouses, payroll, attendance, inventory, and work reports
@@ -156,7 +156,7 @@ The frontend will be running on `http://localhost:3001`
 - Can view own work reports, attendance, and payroll information
 - Cannot submit work reports, update inventory, or manipulate warehouse data
 
-## 🗄️ Database Schema
+## Database Schema
 
 The database includes the following main tables:
 - `users` - User accounts with roles
@@ -169,7 +169,7 @@ The database includes the following main tables:
 - `otps` - OTP tokens for verification
 - `audit_logs` - Audit trail for all actions
 
-## 🔧 Development
+## Development
 
 ### Backend Commands
 ```bash
@@ -189,15 +189,16 @@ npm run start    # Start production server
 npm run lint     # Run ESLint
 ```
 
-## 📝 License
+## License
 
-MIT
+AAiT
 
-## 👥 Authors
+## Authors
 
-AnuInv Sys Development Team
+Abdellah Teshome
+Mohammed Abdellah
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a PR.
 
