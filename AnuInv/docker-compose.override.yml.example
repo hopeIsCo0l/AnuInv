@@ -1,0 +1,17 @@
+# Example override file for local development
+# Copy this to docker-compose.override.yml and customize as needed
+
+# This file allows you to override docker-compose.yml settings
+# for local development without modifying the main file
+
+services:
+  backend:
+    environment:
+      NODE_ENV: development
+      # Override with your local settings if needed
+  
+  frontend:
+    environment:
+      NODE_ENV: development
+      # Override with your local settings if needed
+
