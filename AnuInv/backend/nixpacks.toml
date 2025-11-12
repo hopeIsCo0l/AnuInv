@@ -1,6 +1,6 @@
 # Nixpacks configuration for Railway
 [phases.setup]
-nixPkgs = ["nodejs-20_x", "postgresql"]
+nixPkgs = ["nodejs-20_x", "postgresql", "openssl"]
 
 [phases.install]
 cmds = ["npm ci"]
@@ -9,5 +9,5 @@ cmds = ["npm ci"]
 cmds = ["npx prisma generate", "npm run build"]
 
 [start]
-cmd = "sh -c 'npx prisma migrate deploy && npm run start:prod'"
+cmd = "sh -c 'npx prisma db push --accept-data-loss --skip-generate && npm run start:prod'"
 
