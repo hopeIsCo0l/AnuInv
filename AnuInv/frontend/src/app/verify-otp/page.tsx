@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { authApi, tokenStorage, VerifyOtpData } from '@/lib/api';
 
-export default function VerifyOtpPage() {
+function VerifyOtpContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const userId = searchParams.get('userId');
@@ -119,6 +119,18 @@ export default function VerifyOtpPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function VerifyOtpPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-xl">Loading...</div>
+      </div>
+    }>
+      <VerifyOtpContent />
+    </Suspense>
   );
 }
 
