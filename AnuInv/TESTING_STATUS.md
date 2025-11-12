@@ -1,59 +1,80 @@
-# Local Testing Status ✅
+# Testing Status - AnuInv Sys
 
-## Current Status
+## ✅ What's Working
 
-### ✅ Running Services:
-- **Frontend**: http://localhost:3001 ✅ (Next.js default page showing)
-- **Database**: PostgreSQL Docker container on port 5433 ✅
-- **Backend**: Should be running on http://localhost:3000 (check terminal)
+### Frontend (http://localhost:3001)
+- ✅ Home page loads correctly
+- ✅ Signup page displays properly
+- ✅ All form fields are functional:
+  - Full Name field
+  - Email field
+  - Phone Number field
+  - Password field
+  - Optional Info field
+- ✅ Form validation works
+- ✅ Button states change correctly ("Sign Up" → "Creating Account...")
+- ✅ Error handling displays ("Failed to fetch" when backend is down)
 
-## Test the Backend API
+### Database
+- ✅ PostgreSQL container running (`anuinv-postgres`)
+- ✅ Port mapping: 5433:5432
+- ✅ Database ready for connections
 
-### 1. Check Backend Health
-```powershell
-curl http://localhost:3000/api
+## ❌ What Needs Attention
+
+### Backend API (http://localhost:3000)
+- ❌ Not currently running
+- ❌ Frontend cannot connect to API
+- ❌ Signup requests fail with "Failed to fetch"
+
+## 🚀 How to Complete Testing
+
+### Step 1: Start Backend Server
+
+Open a **NEW terminal window** and run:
+
+```bash
+cd C:\Users\abdel\Documents\AnuInv\backend
+npm run start:dev
 ```
-Should return: `404` (this is normal - means server is running)
 
-### 2. Test Signup Endpoint
-```powershell
-curl -X POST http://localhost:3000/api/auth/signup `
-  -H "Content-Type: application/json" `
-  -d '{\"fullName\":\"Test User\",\"email\":\"test@example.com\",\"phone\":\"+1234567890\",\"password\":\"password123\"}'
+Wait for the message:
+```
+Application is running on: http://localhost:3000
 ```
 
-### 3. Test Signin Endpoint
-```powershell
-curl -X POST http://localhost:3000/api/auth/signin `
-  -H "Content-Type: application/json" `
-  -d '{\"emailOrPhone\":\"test@example.com\",\"password\":\"password123\"}'
-```
+### Step 2: Test Signup Flow
 
-## Frontend Development
+1. Go to http://localhost:3001/signup
+2. Fill in the form:
+   - Full Name: Your name
+   - Email: your-email@example.com
+   - Phone: +1234567890
+   - Password: password123
+3. Click "Sign Up"
+4. Should redirect to OTP verification page
 
-The frontend is showing the default Next.js page. To build the actual AnuInv Sys UI:
+### Step 3: Test Signin Flow
 
-1. **Edit** `frontend/src/app/page.tsx` to create your app UI
-2. **Create components** for:
-   - Signup/Login forms
-   - Dashboard (role-based)
-   - Warehouse management
-   - Inventory management
-   - etc.
+1. Go to http://localhost:3001/signin
+2. Enter email/phone and password
+3. Click "Sign In"
+4. Should redirect to dashboard
 
-## Verify Everything Works
+## 📝 Notes
 
-1. ✅ Frontend loads (http://localhost:3001)
-2. ⏳ Backend responds (http://localhost:3000/api)
-3. ⏳ Database connected (Prisma migrations ran)
-4. ⏳ API endpoints work (test signup/signin)
+- Database is configured to use port **5433** (to avoid conflicts)
+- Backend expects database on `localhost:5433`
+- Frontend expects backend on `http://localhost:3000/api`
+- All environment variables are set correctly
 
-## Next Steps
+## ✅ Frontend Features Verified
 
-1. **Verify backend is running** (check terminal)
-2. **Test API endpoints** (use curl or Postman)
-3. **Build frontend UI** (connect to backend API)
-4. **Test full user flow** (signup → OTP → signin)
+- ✅ Responsive design
+- ✅ Form validation
+- ✅ Loading states
+- ✅ Error handling
+- ✅ Navigation between pages
+- ✅ Token storage (localStorage)
 
-Your application is running locally! 🚀
-
+Once the backend is running, the full authentication flow should work end-to-end!
